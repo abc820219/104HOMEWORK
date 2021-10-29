@@ -1,0 +1,6 @@
+$phone-media: 1366px;
+@mixin phone-media() {
+    @media  (max-width: $phone-media) {
+        @content;
+    }
+}
