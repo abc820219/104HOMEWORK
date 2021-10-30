@@ -134,11 +134,10 @@ export default {
   transition: width 0.5s;
   width: 32%;
 }
-.it_content_list_menu li + li {
+.it_content_list_menu > li + li {
   margin-top: 4px;
 }
 .it_content_list_menu > li {
-  flex: 1;
   background-color: #f5fbff;
   &.active {
     .option {
@@ -258,7 +257,7 @@ export default {
   }
   .it_content_list_menu .info {
     padding: 0 20px;
-    position: initial;
+    position: static;
     width: 100%;
     height: auto;
   }
