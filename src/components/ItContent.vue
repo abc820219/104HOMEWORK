@@ -271,6 +271,7 @@ export default {
     button {
       @include font(20px, 40px);
       @include width(180px);
+      font-weight: 700;
       height: 40px;
       margin-top: 20px;
       margin-right: 0;
