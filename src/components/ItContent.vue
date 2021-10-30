@@ -134,11 +134,10 @@ export default {
   transition: width 0.5s;
   width: 32%;
 }
-.it_content_list_menu li + li {
+.it_content_list_menu > li + li {
   margin-top: 4px;
 }
 .it_content_list_menu > li {
-  flex: 1;
   background-color: #f5fbff;
   &.active {
     .option {
@@ -258,7 +257,7 @@ export default {
   }
   .it_content_list_menu .info {
     padding: 0 20px;
-    position: initial;
+    position: static;
     width: 100%;
     height: auto;
   }
@@ -272,6 +271,7 @@ export default {
     button {
       @include font(20px, 40px);
       @include width(180px);
+      font-weight: 700;
       height: 40px;
       margin-top: 20px;
       margin-right: 0;
@@ -279,7 +279,6 @@ export default {
   }
 }
 @include phone-media {
-  .it_header img,
   .it_content {
     @include width(90%);
   }
