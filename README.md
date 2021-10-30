@@ -8,7 +8,7 @@
 - HTML 標籤與結構選用。
 - 樣式與變版處理。
 - 功能和資料結構。
-- 參考網址：https://kad.events.104.com.tw/t-ambassador_20210826/。
+- 參考網址：https://kad.events.104.com.tw/t-ambassador_20210826/
 # 專案紀錄與說明
 ## 專案初始化設定
 - node版本使用v12.18.4
@@ -19,7 +19,7 @@
 - scss (放scss)。
 - comonents (放組件)。
 ## SCSS規劃
-- _reset 使用https://meyerweb.com/eric/tools/css/reset/。
+- _reset 使用https://meyerweb.com/eric/tools/css/reset/
 - _base 放一些初始化設定。
 - _extend 放置要寫很多代碼的固定樣式。
 - _keyFrame 放置動畫特效
