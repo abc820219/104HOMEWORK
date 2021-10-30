@@ -33,6 +33,7 @@ export default {
   @include font($m-font, 35px);
   text-align: center;
   color: $white;
+  font-weight: 700;
   padding-bottom: 60px;
   letter-spacing: 1.8px;
   text-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.3);
