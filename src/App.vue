@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <ItContent :list-data="listData" />
+    <ItContent
+      :list-data="listData"
+      class="bounceIn"
+    />
   </div>
 </template>
 

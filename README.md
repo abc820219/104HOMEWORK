@@ -11,6 +11,7 @@
 - 參考網址：https://kad.events.104.com.tw/t-ambassador_20210826/。
 # 專案紀錄與說明
 ## 專案初始化設定。
+- node版本使用v12.18.4
 - 配置專案eslint設定自動格式化。
 - 配置assets。
 - images（圖片）。
@@ -21,6 +22,7 @@
 - _reset 使用https://meyerweb.com/eric/tools/css/reset/。
 - _base 放一些初始化設定。
 - _extend 放置要寫很多代碼的固定樣式。
+- _keyFrame 放置動畫特效
 - _mixin 放置斷點與可變動樣式。
 - _utilities 放置直接寫在tag上的樣式。
 - _variable 放置頁面上比較常見的顏色與字體大小。
