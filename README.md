@@ -21,6 +21,7 @@
 - _reset 使用https://meyerweb.com/eric/tools/css/reset/。
 - _base 放一些初始化設定。
 - _extend 放置要寫很多代碼的固定樣式。
+- _keyFrame 放置動畫特效
 - _mixin 放置斷點與可變動樣式。
 - _utilities 放置直接寫在tag上的樣式。
 - _variable 放置頁面上比較常見的顏色與字體大小。
