@@ -46,7 +46,7 @@ export default {
 
 @include phone-media {
   .it_header_title {
-    @include width(90%);
+    @include width(90%, 540px);
   }
   .it_header_title > p {
     margin: 0;
