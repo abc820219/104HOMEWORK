@@ -18,7 +18,7 @@
 - images（圖片）。
 - modules (放js工具)。
 - scss (放scss)。
-- comonents (放組件)。
+- components (放組件)。
 ## SCSS規劃
 - _reset 使用https://meyerweb.com/eric/tools/css/reset/
 - _base 放一些初始化設定。
