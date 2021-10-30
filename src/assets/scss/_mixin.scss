@@ -1,4 +1,40 @@
-$phone-media: 1366px;
+$baseLine: 10px;
+@function rhythm($level) {
+    @return $baseLine * ceil($level);
+}
+@function line($size) {
+    @return rhythm($size * 1.2 / $baseLine);
+}
+@mixin font($size, $line-height: auto) {
+    $line: line($size);
+    font-size: $size;
+    @if $line-height == auto or $line-height < $line {
+        line-height: $line;
+    } @else {
+        line-height: $line-height;
+    }
+}
+
+@mixin  width($width:100%,$max-width:100%) {
+    width:$width;
+    max-width: $max-width;
+}
+
+@mixin psa($top: initial, $right: initial, $bottom: initial, $left: initial) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+$pad-media: 1366px;
+$phone-media: 767px;
+@mixin pad-media() {
+    @media  (max-width: $pad-media) {
+        @content;
+    }
+}
 @mixin phone-media() {
     @media  (max-width: $phone-media) {
         @content;
