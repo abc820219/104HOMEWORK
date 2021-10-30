@@ -1,5 +1,8 @@
 <template>
-  <div id="app">
+  <div
+    v-cloak
+    id="app"
+  >
     <Header />
     <ItContent
       :list-data="listData"
