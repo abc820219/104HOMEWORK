@@ -33,6 +33,7 @@ export default {
   @include font($m-font, 35px);
   text-align: center;
   color: $white;
+  font-weight: 700;
   padding-bottom: 60px;
   letter-spacing: 1.8px;
   text-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.3);
@@ -45,9 +46,10 @@ export default {
 }
 
 @include phone-media {
-  .it_header_title {
-    @include width(90%);
+  .it_header_title, .it_header img {
+    @include width(90%, 540px);
   }
+  
   .it_header_title > p {
     margin: 0;
   }
