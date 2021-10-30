@@ -278,7 +278,6 @@ export default {
   }
 }
 @include phone-media {
-  .it_header img,
   .it_content {
     @include width(90%);
   }

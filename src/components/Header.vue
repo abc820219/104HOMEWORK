@@ -45,9 +45,10 @@ export default {
 }
 
 @include phone-media {
-  .it_header_title {
+  .it_header_title, .it_header img {
     @include width(90%, 540px);
   }
+  
   .it_header_title > p {
     margin: 0;
   }
