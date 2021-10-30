@@ -11,6 +11,7 @@
 - 參考網址：https://kad.events.104.com.tw/t-ambassador_20210826/。
 # 專案紀錄與說明
 ## 專案初始化設定。
+- node版本使用v12.18.4
 - 配置專案eslint設定自動格式化。
 - 配置assets。
 - images（圖片）。
