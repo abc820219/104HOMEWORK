@@ -1,8 +1,8 @@
 <template>
-  <main id="app">
+  <div id="app">
     <Header />
     <ItContent :list-data="listData" />
-  </main>
+  </div>
 </template>
 
 <script>
@@ -188,7 +188,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-main {
+#app {
   @include width(100%, 1200px);
   margin: 0 auto;
   padding-bottom: 80px;
