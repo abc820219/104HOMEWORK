@@ -12,7 +12,7 @@
 # 專案紀錄與說明
 - 專案page:https://abc820219.github.io/104HOMEWORK/
 ## 專案初始化設定
-- node版本使用v12.18.4
+- node版本使用v12.18.4。
 - 配置專案eslint設定自動格式化。
 - 配置assets。
 - images（圖片）。
