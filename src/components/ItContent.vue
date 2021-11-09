@@ -3,57 +3,38 @@
     <ItContentHeader />
     <div class="it_content_card">
       <ItContentTaiwan :active-taiwan-img="activeTaiwanImg" />
-      <div class="it_content_list">
-        <ul class="it_content_list_menu">
-          <li
-            v-for="(item, index) in listData"
-            :key="item.city"
-            :class="{ active: index == activeNumber }"
+      <ul class="it_content_list_menu">
+        <li
+          v-for="(item, index) in listData"
+          :key="item.city"
+          :class="{ active: index == activeNumber }"
+        >
+          <div
+            class="option"
+            @click.self="
+              ($event) => changeActiveNumberPhoneHandler(index, $event)
+            "
+            @mouseenter="($event) => changeActiveNumberHandler(index, $event)"
           >
-            <div
-              class="option"
-              @click.self="
-                ($event) => changeActiveNumberPhoneHandler(index, $event)
-              "
-              @mouseenter="($event) => changeActiveNumberHandler(index, $event)"
-            >
-              {{ item.city }}
-              <img
-                v-show="index == activeNumber"
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABIUExURUdwTP///////////////////////////////////////////////////////////////////////////////////////////wV68vgAAAAXdFJOUwDS60T04LMEC/qgwxJgJRtSk4huL3s3IL2dFAAAAVJJREFUSMfFlVGugzAMBEsoAQKUACW5/01bNQEjU8uLVL23nyP/YMab2+1/Mtj6Et+yxOiu8C1zfGfGeU7t4icLyGmgSwNxwDilKdJAW2KcMlZp4h4wTnmYNGEeGKc872miGjFOCW2aKHqMU3ye6BqMH+zKy+eSSZyy5gkHcsqUJyaQU7JjcQU5SWYF+awq36anxzilF/TscW2fGP+FtkHQM6jaloKepa5tFLSNmraLoOfyB9rOID99zgRy3hj8YyTONSkajPM+NSPG91ihTa3SsrNwQrNyWoNw7oNSA5uRDuT8eroa4/ul54VXPcb5k8ivVeK8B0/N4pTGWYUWXJV29IL6XjmJrVQsyHeDjWC2wcyuRozz54EXrsRPneBBzvtrATk3eAI5r5Kuxjg3uOgxzl9NbnCjmd2kjbcB5Id/NX03WOLHrbffDZb4Ye/uGn/nBaMVRsH0/mQ3AAAAAElFTkSuQmCC"
-                draggable="false"
-                alt="arrow"
-              >
-            </div>
-            <ul
+            {{ item.city }}
+            <img
               v-show="index == activeNumber"
-              class="info"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABIUExURUdwTP///////////////////////////////////////////////////////////////////////////////////////////wV68vgAAAAXdFJOUwDS60T04LMEC/qgwxJgJRtSk4huL3s3IL2dFAAAAVJJREFUSMfFlVGugzAMBEsoAQKUACW5/01bNQEjU8uLVL23nyP/YMab2+1/Mtj6Et+yxOiu8C1zfGfGeU7t4icLyGmgSwNxwDilKdJAW2KcMlZp4h4wTnmYNGEeGKc872miGjFOCW2aKHqMU3ye6BqMH+zKy+eSSZyy5gkHcsqUJyaQU7JjcQU5SWYF+awq36anxzilF/TscW2fGP+FtkHQM6jaloKepa5tFLSNmraLoOfyB9rOID99zgRy3hj8YyTONSkajPM+NSPG91ihTa3SsrNwQrNyWoNw7oNSA5uRDuT8eroa4/ul54VXPcb5k8ivVeK8B0/N4pTGWYUWXJV29IL6XjmJrVQsyHeDjWC2wcyuRozz54EXrsRPneBBzvtrATk3eAI5r5Kuxjg3uOgxzl9NbnCjmd2kjbcB5Id/NX03WOLHrbffDZb4Ye/uGn/nBaMVRsH0/mQ3AAAAAElFTkSuQmCC"
+              draggable="false"
+              alt="arrow"
             >
-              <li
-                v-for="content in item.cityContent"
-                :key="content.title"
-              >
-                <a
-                  :href="content.isFull ? 'javascript:;' : content.href"
-                  :target="content.isFull ? '_self' :'_blank'"
-                  :class="{ full: content.isFull }"
-                >
-                  <p>{{ content.title }}</p>
-                  <button>
-                    {{ content.isFull ? "名額已滿" : "立即申請" }}
-                    <img
-                      v-if="!content.isFull"
-                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAAyCAMAAAAA5ocEAAAAk1BMVEUAAAD//4b//5P/+4H/9YD/9ID/+IL//4P//4f/9YD/9YD/9YD/94H/9YD/94H/9YD/9YH/94H/9oH/9ID/9YD/9YD/9YD/9YD/9ID/9YD/9YD/9YD/9oH/9YD/+YH/9ID/9YD/9ID/9YH/9oH/9YD/9YD/9oH/9YD/9ID/9ID/9YD/9YD/9YD/9oH/9oD/9ID/9YCmpv7KAAAAMHRSTlMABwMV++wiDwv39OM7u0OKai0b8N/P6MXAr5tkNjMm2cqme1y1oVdP19NJk4JzVaiFQJgOAAACYUlEQVRYw5VXWZaCMBAMIPsyCiIugKKOjg46uf/pZuvw1V2+9G+9qhA6VemonyrOjhKrW4cyGDSlApXFuolErq8/PAn0Up32QDjRWh8ikat1GvBgVP+AVSsJt4n+rTpkubc/0GfZbv4HxoWgvNX/VXN7HglMOPZOU50E6XfC94y0OxA4uzDMNyM9fylty54b8O3FD1mWtuznjMDB5aU/J2nEfmcPFoE5WULacxogNmeohU/gQTDUSPiqV5bsYEmgZKgH4f5CWbK9G4GSHeeCNLHB74rWBJKhxINfdYpjg4XdDYFxgaWTTHFsZMetZCiqk1k6U7bs4ws7XmZgV5h9emHHK0nP7sqWfY+NoXg73o30VUE2F8cVtmMRo160FbBjv8J2zGKUuhO7YdjlfjIUlt4xIGaHB9FQlEDgDGC2k2M7dhXhD6U4NrLjAO3oNASPvKGQVwtNdWXvZAI/eTtN+YKOFvvJJiG29sF11VSs8BeBX1DYXwAL4+DZuCDFsXCSoRsxZ4Uf6FK7GOEO5dnagcIBODJVhzbbsMLj5BHcALBsHaEftSythZ8mEkI87sDOomzee3BE82w7qwoSTgVhsOwRRlwbm76jefXmodmtZPMtmYRBgt1C286qnoKz6tGsUYe2nVXBytgHCR8i286q0gi3nPDZ2CeyfTAob0mhmrFXCPLlgDqrwj0YX5y1lCTUWfTmq83wgoRzB3U2gpfek1u1AaFKDRAfwAbeoazYgMQVH+1ZBabTqAb3i3sGUT69b44CGNbgsefmJCxVkNLYKkgPIujk1FmpyiMAQwQ6o4x9A+oT0ianE5dkAAAAAElFTkSuQmCC"
-                      draggable="false"
-                      alt="arrow"
-                    >
-                  </button>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+          </div>
+          <ItContentListMenu
+            v-show="index == activeNumber"
+            :current-city-content="currentCityContent"
+            class="it_content_list_cityContent"
+          />
+        </li>
+      </ul>
+      <ItContentListMenu
+        :current-city-content="currentCityContent"
+        class="cityContent"
+      />
     </div>
     <ItContentHints />
   </section>
@@ -64,12 +45,14 @@ import { getPosition, checkIsPhone } from "@/assets/modules/common.js";
 import ItContentTaiwan from "@/components/ItContentTaiwan";
 import ItContentHints from "@/components/ItContentHints";
 import ItContentHeader from "@/components/ItContentHeader";
+import ItContentListMenu from "@/components/ItContentListMenu";
 export default {
   name: "ItContnet",
   components: {
     ItContentTaiwan,
     ItContentHints,
     ItContentHeader,
+    ItContentListMenu,
   },
   props: {
     listData: {
@@ -83,6 +66,9 @@ export default {
     };
   },
   computed: {
+    currentCityContent() {
+      return this.listData[this.activeNumber].cityContent;
+    },
     activeTaiwanImg() {
       if (!this.listData.length) return;
       let imgName = this.listData.filter(
@@ -120,23 +106,17 @@ export default {
 }
 .it_content_card {
   display: flex;
-}
-
-.it_content_list {
-  flex: 1 1 0;
   position: relative;
 }
-
 .it_content_list_menu {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   transition: width 0.5s;
-  width: 32%;
+  min-width: 255px;
 }
+
 .it_content_list_menu > li + li {
   margin-top: 4px;
 }
+
 .it_content_list_menu > li {
   background-color: #f5fbff;
   &.active {
@@ -145,23 +125,45 @@ export default {
     }
     background-color: $primary;
   }
+  .it_content_list_info {
+    margin-left: 0px;
+  }
 }
-
-.it_content_list_menu .info {
-  @include psa(0, 0);
-  width: 67%;
+.it_content_list_cityContent {
+  display: none;
+}
+.it_content_list_menu .option {
+  @extend %flex-center;
+  @include font(32px, 74px);
+  position: relative;
+  font-weight: 700;
+  color: $hints;
   height: 100%;
-  padding: 20px;
-  background-color: #f5fbff;
+  cursor: pointer;
+  img {
+    @include psa(50%, initial, initial, 75%);
+    transform: translateY(-50%);
+    width: 28px;
+  }
 }
-
-.it_content_list_menu .info li + li {
+.it_content_list_info {
+  background-color: #fff;
+  margin-left: 8px;
+  padding: 20px;
+  width: 100%;
+}
+.it_content_list_info ul,
+.it_content_list_info li {
+  width: 100%;
+}
+.it_content_list_info li + li {
   border-top: 2px solid $hints;
 }
-
-.it_content_list_menu .info a {
+.it_content_list_info a {
   display: flex;
+  cursor: pointer;
   justify-content: space-between;
+  align-items: center;
   padding: 25px 0;
   p {
     @include font($b-font, 35px);
@@ -200,21 +202,6 @@ export default {
   &.full:hover {
     background: #c9d9ea;
     background-color: #f5fbff;
-  }
-}
-
-.it_content_list_menu .option {
-  @extend %flex-center;
-  @include font(32px, 74px);
-  position: relative;
-  font-weight: 700;
-  color: $hints;
-  height: 100%;
-  cursor: pointer;
-  img {
-    @include psa(50%, initial, initial, 75%);
-    transform: translateY(-50%);
-    width: 28px;
   }
 }
 </style>
@@ -256,13 +243,13 @@ export default {
       transform: rotate(180deg);
     }
   }
-  .it_content_list_menu .info {
+  .it_content_list_info{
     padding: 0 20px;
     position: static;
     width: 100%;
     height: auto;
   }
-  .it_content_list_menu .info a {
+  .it_content_list_info a {
     flex-direction: column;
     align-items: center;
     p {
@@ -276,6 +263,12 @@ export default {
       margin-top: 20px;
       margin-right: 0;
     }
+  }
+  .cityContent {
+    display: none;
+  }
+  .it_content_list_cityContent {
+    display: block;
   }
 }
 @include phone-media {

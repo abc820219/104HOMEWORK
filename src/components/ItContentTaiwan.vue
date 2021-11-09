@@ -51,7 +51,7 @@ export default {
 @import "@/assets/scss/_mixin.scss";
 .it_content_card_taiwan {
   position: relative;
-  width: 282.2px;
+  min-width: 282.2px;
   margin-right: 15px;
   padding: 60px 38px;
   background-color: $taiwan;
